@@ -35,7 +35,8 @@
 					<c:forEach items="${pets}" var = "p">
 					<div class="col">
 						<div class="card shadow-sm">
-							<img src="${root}/assets/no_image.png" class="w-100" />
+							<img src="${p.pPhotoBase64}" class="w-100" />
+<%--							<img src="${root}/assets/no_image.png" class="w-100" />--%>
 							<p class="card-text fs-3">${p.pName}</p>
 							<div class="d-flex justify-content-between align-items-center">
 								<button type="button"

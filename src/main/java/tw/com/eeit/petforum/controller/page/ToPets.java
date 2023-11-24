@@ -21,8 +21,7 @@ public class ToPets extends HttpServlet {
 			throws ServletException, IOException {
 
 		MemberService memberService = new MemberService();
-		List<Pet> pets  =memberService.getAllPets();
-
+		List<Pet> pets  = memberService.getAllPets();
 		request.setAttribute("pets", pets);
 
 		request.getRequestDispatcher(PathConverter.convertToWebInfPath(request.getServletPath()))
