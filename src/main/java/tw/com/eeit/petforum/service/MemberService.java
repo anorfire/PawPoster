@@ -1,12 +1,30 @@
 package tw.com.eeit.petforum.service;
 
 import java.sql.Connection;
+import java.util.List;
 
 import tw.com.eeit.petforum.model.bean.Likes;
+import tw.com.eeit.petforum.model.bean.Pet;
 import tw.com.eeit.petforum.model.dao.LikesDAO;
+import tw.com.eeit.petforum.model.dao.PetDAO;
 import tw.com.eeit.petforum.util.ConnectionFactory;
 
 public class MemberService {
+
+	public List<Pet> getAllPets(){
+		try (Connection conn = ConnectionFactory.getConnection()){
+
+			PetDAO petDAO = new PetDAO(conn);
+			List<Pet> petList = petDAO.findAllPetWithMember();
+			return petList;
+
+
+		} catch (Exception e){
+			e.printStackTrace();
+		}
+
+		return null;
+	}
 
 	/**
 	 * 呼叫此方法並傳入Likes物件(須包含日期、會員ID、寵物ID)以切換「按讚」狀態。<br>
